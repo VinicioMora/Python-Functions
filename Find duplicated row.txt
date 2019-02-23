@@ -1,0 +1,11 @@
+unique_apps = []
+duplicate_apps = []
+for app in android: #android = name of dataset without header
+    app_name = app[0]
+    if app_name in unique_apps:
+        duplicate_apps.append(app_name)
+    else:
+        unique_apps.append(app_name)
+
+print('Example of 5 duplicated apps: ',duplicate_apps[:5])
+print('Number of duplicated apps: ',len(duplicate_apps))
