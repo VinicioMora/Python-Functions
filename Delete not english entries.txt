@@ -1,0 +1,66 @@
+Behind the scenes, each character we use in a string has a corresponding number associated with it. 
+For instance, the corresponding number for character 'a' is 97, for character 'A' is 65, a
+nd for character 'letra_china' is 29,233. 
+We can get the corresponding number of each character using the ord() built-in function.
+
+print(ord('a'))
+ >> 97
+
+If the number is equal to or less than 127, then the character belongs 
+to the set of common English characters, otherwise it doesn't.
+
+So if an app name contains a character that is greater than 127, 
+then it probably means that the app has a non-English name.
+
+string = 'abc'
+
+string[0] >> a
+string[1] >> b
+string[2] >> c
+
+for character in string:
+	print(character)
+>> a
+>> b
+>> c
+
+def is_english(string):
+    
+    for character in string:
+        if ord(character) > 127:
+            return False
+    
+    return True
+
+print(is_english('Instagram'))
+print(is_english('xxx'))
+>> True
+>> False
+
+Emojis and some characters like ™ fall outside the ASCII range and have 
+corresponding numbers that are over 127.
+To minimize the impact of data loss, we'll only remove an app if its name 
+has more than three characters with corresponding numbers falling outside the ASCII range.
+This means all English apps with up to three emoji or other special characters will still be 
+labeled as English. Our filter function is still not perfect, but it should be fairly effective.
+
+def is_english(string):
+    non_ascii = 0
+    
+    for character in string:
+        if ord(character) > 127:
+            non_ascii += 1
+    
+    if non_ascii > 3:
+        return False
+    else:
+        return True
+
+print(is_english('Docs To Gox Free Office Suite'))
+print(is_english('Instachat x'))
+>> True
+>> True
+
+
+
+

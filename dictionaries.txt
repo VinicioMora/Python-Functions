@@ -1,0 +1,44 @@
+planets = ['Mercury', 'Venus', 'Earth', 'Mars', 'Jupiter', 'Saturn', 'Uranus', 'Neptune']
+planet_to_initial = {planet: planet[0] for planet in planets}
+planet_to_initial
+>> {'Mercury': 'M','Venus': 'V','Earth': 'E','Mars': 'M','Jupiter': 'J','Saturn': 'S','Uranus': 'U','Neptune': 'N'}
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+We can access a collection of all the keys or all the values with dict.keys() and dict.values(), respectively.
+
+' '.join(sorted(planet_to_initial.values()))
+ >> 'E J M M N S U V'
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+The very useful dict.items() method lets us iterate over the keys and values of a dictionary simultaneously. (In Python jargon, an item refers to a key, value pair)
+
+for planet, initial in planet_to_initial.items():
+    print("{} begins with \"{}\"".format(planet.rjust(10), initial))
+
+   Mercury begins with "M"
+     Venus begins with "V"
+     Earth begins with "E"
+      Mars begins with "M"
+   Jupiter begins with "J"
+    Saturn begins with "S"
+    Uranus begins with "U"
+   Neptune begins with "N"
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+def multi_word_search(doc_list, keywords):
+    """
+    Takes list of documents (each document is a string) and a list of keywords.  
+    Returns a dictionary where each key is a keyword, and the value is a list of indices
+    (from doc_list) of the documents containing that keyword
+
+    >>> doc_list = ["The Learn Python Challenge Casino.", "They bought a car and a casino", "Casinoville"]
+    >>> keywords = ['casino', 'they']
+    >>> multi_word_search(doc_list, keywords)
+    {'casino': [0, 1], 'they': [1]}
+    """
+    result ={}
+    for keyword in keywords:
+        result[keyword] = word_search(doc_list,keyword)
+    return result

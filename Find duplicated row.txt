@@ -24,3 +24,15 @@ for app in android:
     elif name not in reviews_max:
         reviews_max[name] = n_reviews
 
+# Creating a new dataset list without duplicates
+
+android_clean = []
+already_added = []
+
+for app in android:
+    name = app[0]
+    n_reviews = float(app[3])
+    
+    if (reviews_max[name] == n_reviews) and (name not in already_added):
+        android_clean.append(app)
+        already_added.append(name) # make sure this is inside the if block

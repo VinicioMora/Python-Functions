@@ -1,0 +1,90 @@
+
+math is a module. A module is just a collection of variables (a namespace, if you like) defined by someone else. 
+We can see all the names in math using the built-in function dir()
+print(dir(math))
+
+print("pi to 4 significant digits = {:.4}".format(math.pi))
+ >>pi to 4 significant digits = 3.142
+
+help(math.log)
+
+If we know we'll be using functions in math frequently we can import it under a shorter alias to save some 
+typing (though in this case "math" is already pretty short).
+
+import math as mt
+print(mt.pi)
+ >> 3.141592653589793
+
+
+Wouldn't it be great if we could refer to all the variables in the math module by themselves? 
+i.e. if we could just refer to pi instead of math.pi or mt.pi? Good news: we can do that.
+
+from math import *
+print(pi, log(32, 2))
+ >> 3.141592653589793 5.0
+
+import * makes all the module's variables directly accessible to you (without any dotted prefix).
+
+A good compromise is to import only the specific things we'll need from each module:
+
+from math import log, pi
+from numpy import asarray
+
+
+Submodules
+
+We've seen that modules contain variables which can refer to functions or values. 
+Something to be aware of is that they can also have variables referring to other modules.
+
+# Roll 10 dice
+rolls = numpy.random.randint(low=1, high=6, size=10)
+rolls
+ >>array([1, 1, 1, 2, 3, 4, 4, 5, 2, 3])
+
+Mathplotlib .. modificar labels, titulos, etc.
+
+def prettify_graph(graph):
+    graph.set_title("Results of 500 slot machine pulls")
+    # Make the y-axis begin at 0
+    graph.set_ylim(bottom=0)
+    # Label the y-axis
+    graph.set_ylabel("Balance")
+    # Bonus: format the numbers on the y-axis as dollar amounts
+    # An array of the values displayed on the y-axis (150, 175, 200, etc.)
+    ticks = graph.get_yticks()
+    # Format those values into strings beginning with dollar sign
+    new_labels = ['${}'.format(int(amt)) for amt in ticks]
+    # Set the new labels
+    graph.set_yticklabels(new_labels)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

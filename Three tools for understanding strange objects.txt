@@ -1,0 +1,26 @@
+In the cell above, we saw that calling a numpy function gave us an "array". 
+We've never seen anything like this before (not in this course anyways). 
+But don't panic: we have three familiar builtin functions to help us here.
+
+1: type() (what is this thing?)
+
+type(rolls) # rolls = numpy.random.randint(1,6,10)
+ >>numpy.ndarray
+
+
+2: dir() (what can I do with it?)
+print(dir(rolls))
+
+ .. ['T', '__abs__', '__add__', '__and__', '__array__', '__array_finalize__', 
+'__array_function__', '__array_interface__', '__array_prepare__', '__array_priority__',
+ '__array_struct__', '__array_ufunc__', '__array_wrap__', '__bool__', '__class__', '__complex__',
+ '__contains__', '__copy__', '__deepcopy__', '__delattr__', '__delitem__', '__dir__', '__divmod__', 
+'__doc__', '__eq__', '__float__', '__floordiv__', '__format__', '__ge__',...]
+
+
+
+3: help() (tell me more)
+
+
+
+

@@ -1,0 +1,106 @@
+triplequoted_hello = """hello
+world"""
+print(triplequoted_hello)
+triplequoted_hello == hello
+>>
+hello
+world
+
+True
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+print("hello")
+print("world")
+print("hello", end='')
+print("pluto", end='')
+
+>>
+hello
+world
+hellopluto
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+[char+'! ' for char in planet]
+
+['P! ', 'l! ', 'u! ', 't! ', 'o! ']
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+claim = "Pluto is a planet!"
+claim.startswith(planet)
+claim.endswith('dwarf planet')
+ >> True
+ >> False
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+claim = claim.split()
+ >> ['Pluto', 'is', 'a', 'planet!']
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+datestr = '1956-01-31'
+year, month, day = datestr.split('-')
+print(year)
+ >> 1956
+
+'/'.join([month, day, year])
+ >> '01/31/1956'
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+planet = 'Pluto'
+position = str(9)
+
+print(('{}, you will always be the {}th planet to me.').format(planet, position))
+ >>Pluto, you will always be the 9th planet to me.
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+pluto_mass = 1.303 * 10**22
+earth_mass = 5.9722 * 10**24
+population = 52910390
+#         2 decimal points   3 decimal points, format as percent     separate with commas
+"{} weighs about {:.2} kilograms ({:.3%} of Earth's mass). It is home to {:,} Plutonians.".format(
+    planet, pluto_mass, pluto_mass / earth_mass, population,
+)
+
+ >> "Pluto weighs about 1.3e+22 kilograms (0.218% of Earth's mass). It is home to 52,910,390 Plutonians."
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+s = """Pluto's a {0}.
+No, it's a {1}.
+{0}!
+{1}!""".format('planet', 'dwarf planet')
+print(s)
+
+>>
+Pluto's a planet.
+No, it's a dwarf planet.
+planet!
+dwarf planet!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
