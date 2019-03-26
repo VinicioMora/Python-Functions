@@ -1,0 +1,7 @@
+datestr = '1956-01-31'
+def ChangeDateFormat(date):
+
+    year, month, day = date.split('-')    
+    return '/'.join([month, day, year])
+
+ChangeDateFormat(datestr)
