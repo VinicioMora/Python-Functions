@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 """
-Created on Tue Mar 26 15:21:18 2019
+Created on Wed Mar 27 14:21:31 2019
 
 @author: C57946A
 """
 
-# Binarization
-from sklearn.preprocessing import Binarizer
 import pandas as pd
-from numpy import set_printoptions
+from sklearn.decomposition import PCA
+
+# Load data 
 
 filename = 'PID.csv' # CSV FILE
 names = ['preg','plas','pres','skin','test','mass','pedi','age','class']
@@ -21,10 +21,10 @@ array = dataframe.values
 X= array[:,0:8]
 Y = array[:,8]
 
-binarizer = Binarizer(threshold = 0.0).fit(X)
-binaryX = binarizer.transform(X)
+pca = PCA(n_components =3)  # Select the 3 principal components
+fit =pca.fit(X)
+ 
+# Sumarize components
 
-# Sumarize transformed data
-set_printoptions(precision = 3)
-print(binaryX[0:5,:])
-
+print ('Explained Variance: {}'.format(fit.explained_variance_ratio_))
+print(fit.components_c)
