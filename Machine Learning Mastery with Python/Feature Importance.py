@@ -25,12 +25,5 @@ model = ExtraTreesClassifier()
 model.fit(X,Y)
 print(model.feature_importances_)
 
-def ImportantAtributes(imporntances, n):
 
-    
-    MaxValue = max(importances)
-    importances
-
-                
-ImportantAtributes(model.feature_importances_, 5)
 
