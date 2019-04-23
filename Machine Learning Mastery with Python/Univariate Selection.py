@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+0# -*- coding: utf-8 -*-
 """
 Created on Wed Mar 27 11:10:12 2019
 
@@ -33,4 +33,23 @@ print(fit.scores_)
 features = fit.transform(X)
 
 #Sumerize selected features
-#print(features[0:5,:])
+print(features[0:5,:])
+
+# https://machinelearningmastery.com/feature-importance-and-feature-selection-with-xgboost-in-python/
+# plot feature importance manually
+from xgboost import XGBClassifier
+import xgboost as xgb
+from matplotlib import pyplot
+
+model = XGBClassifier()
+model.fit(X, Y)
+# feature importance
+print(model.feature_importances_)
+# plot
+pyplot.bar(range(len(model.feature_importances_)), model.feature_importances_)
+pyplot.show()
+
+
+# plot feature importance
+xgb.plot_importance(model)
+pyplot.show()
