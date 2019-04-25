@@ -1,0 +1,44 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Mar 28 11:04:06 2019
+
+@author: C57946A
+"""
+# !pip3 install pandas==0.24.2
+import pandas as pd
+from fastparquet import ParquetFile
+from fastparquet import write
+
+
+file = 'inq_data_sample.csv'                    # Type the name of the file here!
+                                          # .csv for CSV, or .parquet for Parquet
+
+def Read_File(file): # Function that reads the uploaded file
+  if file.endswith('csv'):
+    DS = pd.read_csv(file, encoding='utf-8') # Reading the Data from  CSV
+    pq = False
+  elif file.endswith('parquet'): # Reading the Data from Parquet
+    DS = ParquetFile(file)
+    DS = DS.to_pandas()
+    pq = True
+  else:
+    return "Error, please type the file name with the correct file extension"
+  return Write_File(DS,pq)
+
+
+def Write_File(DS,pq): # Function that creates a new file with the name NEW, in the same format as the firs one
+    if pq == True:
+      return DS.to_csv(file[:-8]+'.csv', index = False) 
+    else:
+      return write(file[:-4]+'.parquet', DS, compression='GZIP', file_scheme='hive')  # To parquet -- row-groups up to 50M rows
+  
+
+
+
+Read_File(file)
+
+
+
+ 
+
+
